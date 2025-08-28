@@ -16,7 +16,7 @@ const Login = () => {
    const onSubmitHandler = async (event) => {
      try {
         event.preventDefault();
-       axios.post(`${process.env.VITE_BASE_URL}/api/user/${state}`, {name, email, password}, {
+      const {data} = axios.post(`${process.env.VITE_BASE_URL}/api/user/${state}`, {name, email, password}, {
       withCredentials: true
        });
 
