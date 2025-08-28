@@ -16,7 +16,10 @@ const Login = () => {
    const onSubmitHandler = async (event) => {
      try {
         event.preventDefault();
-        const {data} = await axios.post(`/api/user/${state}`, {name, email, password});
+       axios.post(`${process.env.VITE_BASE_URL}/api/user/${state}`, {name, email, password}, {
+      withCredentials: true
+       });
+
         if(data.success){
             navigate('/');
             setToken(data.token);
