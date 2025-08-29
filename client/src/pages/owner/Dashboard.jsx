@@ -40,7 +40,7 @@ const Dashboard = () => {
       const {data} = await axios.get('/api/owner/dashboard')
       if(data.success){
         setData(data.dashboardData)
-        console.log("no",data.dashboardData);
+       
       } else{
         toast.error(data.message);
       }
