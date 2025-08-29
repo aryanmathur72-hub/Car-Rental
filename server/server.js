@@ -12,11 +12,8 @@ const app = express();
 //connect db
 await connectDB();
 
+app.use(cors());
 
-app.use(cors({
-  origin: ['http://localhost:5173', 'https://car-rental-seven-pink.vercel.app'],
-  credentials: true
-}));
 
 app.use(express.json());
 
