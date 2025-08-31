@@ -62,7 +62,7 @@ const Hero = () => {
              <div className='flex flex-col items-start gap-2'>
                  <label htmlFor='pickup-date'>Pick-up Date</label>
                  <input 
-                    className='text-sm text-gray-500' 
+                    className='text-sm text-gray-500 border border-borderColor rounded-2xl' 
                     value={pickupDate}
                     onChange={e=> setPickupDate(e.target.value)}
                     type='date' 
@@ -71,12 +71,12 @@ const Hero = () => {
                   />
              </div>
 
-             <div className='flex flex-col items-start gap-2'>
+             <div className='flex flex-col items-start gap-2 '>
                 <label htmlFor='return-date'>Return Date</label>
                 <input 
                   value={returnDate}
                   onChange={e=> setReturnDate(e.target.value)}
-                  className='text-sm text-gray-500' 
+                  className='text-sm text-gray-500 border border-borderColor rounded-2xl' 
                   type='date' 
                   id='return-date'
                 /> 
