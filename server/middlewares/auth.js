@@ -10,7 +10,7 @@ export const protect = async (req, res, next) => {
   const token = rawHeader.startsWith("Bearer ") ? rawHeader.split(" ")[1] : rawHeader;
 
   if (!token) {
-    return res.json({ success: false, message: 'Not authorized ye bala' });
+    return res.json({ success: false, message: 'Not authorized' });
   }
 
   try {

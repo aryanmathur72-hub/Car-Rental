@@ -71,7 +71,7 @@ const Hero = () => {
                   />
              </div>
 
-             <div className='flex flex-col items-start gap-5'>
+             <div className='flex flex-col items-start gap-2'>
                 <label htmlFor='return-date'>Return Date</label>
                 <input 
                   value={returnDate}
