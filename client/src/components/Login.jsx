@@ -28,6 +28,7 @@ const Login = () => {
             navigate('/');
             setToken(data.token);
             localStorage.setItem('token', data.token);
+            toast.success("Login successfully");
             setShowLogin(false);
 
         } else{
