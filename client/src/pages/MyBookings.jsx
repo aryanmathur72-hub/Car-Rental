@@ -78,8 +78,7 @@ const MyBookings = () => {
                 <img className='w-4 h-4 mt-1' src={assets.calendar_icon_colored}/>
                 <div>
                   <p className='text-gray-500'>Rental Period </p>
-                  <p className=''>{booking.pickupDate.split('T')[0]} To 
-                   {booking.returnDate.split('T')[0]}</p>
+                  <p className=''>{booking.pickupDate.split('T')[0]} To {booking.returnDate.split('T')[0]}</p>
                 </div>
                 </div>
 
@@ -87,8 +86,8 @@ const MyBookings = () => {
                     <img className='w-4 h-4 mt-1' src={assets.location_icon}/>
                     <div>
                       <p className='text-gray-500'>Pick-up Location</p>
-                      <p className=''>{booking.car.location.split('T')[0]} To 
-                      {booking.returnDate.split('T')[0]}</p>
+                      <p className=''>{booking.car.location.split('T')[0]} To {booking.returnDate.split('T')[0]}</p>
+                     
                     </div>
                  </div>
 
@@ -96,7 +95,7 @@ const MyBookings = () => {
                     <img className='w-4 h-4 mt-1' src={assets.location_icon}/>
                     <div>
                       <p className='text-gray-500'>Return date</p>
-                      <p>{booking.car.location} </p>
+                      <p>{booking.returnDate.split('T')[0]}</p>
                    </div>
                  </div>
               </div>
