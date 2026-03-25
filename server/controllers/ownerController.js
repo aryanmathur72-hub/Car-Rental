@@ -24,7 +24,7 @@ export const addCar = async (req, res) => {
     try {
         const {_id} = req.user;
        
-    console.log("User ID:", _id);
+    // console.log("User ID:", _id);
 
 
        
