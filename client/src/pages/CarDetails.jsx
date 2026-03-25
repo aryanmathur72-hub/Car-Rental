@@ -33,7 +33,7 @@ const CarDetails = () => {
            toast.error(error.message)
     }
   }
-   console.log("cars");
+  //  console.log("cars");
 
 
 

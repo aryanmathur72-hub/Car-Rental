@@ -10,8 +10,8 @@ const Hero = () => {
   const {pickupDate, setPickupDate, returnDate, navigate ,setReturnDate} = useAppContext();
 
   const handleSearch = (e) => {
-    e.preventDefault();
-    navigate('/cars?pickuplocation=' + pickuplocation + '&pickupDate='
+     e.preventDefault();
+     navigate('/cars?pickuplocation=' + pickuplocation + '&pickupDate='
        + pickupDate + '&returnDate=' + returnDate)
   }
 
@@ -50,7 +50,6 @@ const Hero = () => {
              <div className='flex flex-col items-start gap-2'>
 
                  <select required value={pickuplocation} onChange={(e) => setPickuplocation(e.target.value)}>
-                 
                     <option value="">Pickup Location</option>
                     {cityList.map((city) => <option key={city} value={city}> {city} </option>)}
                  </select>

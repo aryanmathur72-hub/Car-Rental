@@ -2,16 +2,38 @@ import React from 'react'
 import { useState } from 'react';
 import { useAppContext } from '../context/AppContext';
 import {toast} from 'react-hot-toast';
+import { GoogleLogin } from '@react-oauth/google';
 
 
 const Login = () => {
 
     const {setShowLogin, axios, setToken, navigate} = useAppContext();
+    const hasGoogleAuth = Boolean(import.meta.env.VITE_GOOGLE_CLIENT_ID);
 
     const [state, setState] = useState("login");
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+     const handleGoogleSuccess = async (credentialResponse) => {
+        try {
+            const { data } = await axios.post('/api/user/google', {
+                credential: credentialResponse.credential,
+            });
+
+            if (data.success) {
+                navigate('/');
+                setToken(data.token);
+                localStorage.setItem('token', data.token);
+                toast.success('Login successfully');
+                setShowLogin(false);
+            } else {
+                toast.error(data.message);
+            }
+        } catch (error) {
+            toast.error(error.message);
+        }
+     }
     
    const onSubmitHandler = async (event) => {
      try {
@@ -98,6 +120,24 @@ const Login = () => {
             <button className="bg-primary hover:bg-primary-dull transition-all text-white w-full py-2 rounded-md cursor-pointer">
                 {state === "register" ? "Create Account" : "Login"}
             </button>
+
+                        {hasGoogleAuth && (
+                            <>
+                                <div className='w-full flex items-center gap-2'>
+                                    <div className='h-px bg-gray-200 flex-1'></div>
+                                    <span className='text-xs text-gray-400'>OR</span>
+                                    <div className='h-px bg-gray-200 flex-1'></div>
+                                </div>
+
+                                <div className='w-full flex justify-center'>
+                                    <GoogleLogin
+                                        onSuccess={handleGoogleSuccess}
+                                        onError={() => toast.error('Google sign in failed')}
+                                        useOneTap
+                                    />
+                                </div>
+                            </>
+                        )}
         </form>      
     </div>
   )

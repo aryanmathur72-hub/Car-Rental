@@ -82,7 +82,7 @@ const Navbar = () => {
               className='cursor-pointer'>{isOwner ? 'Dashboard' : 'List cars'}
             </button>
 
-            <button onClick={() => {user ? logout() :setShowLogin(true)}} className='cursor-pointer px-8 py-2 bg-primary
+            <button onClick={() => {user ? logout() : setShowLogin(true)}} className='cursor-pointer px-8 py-2 bg-primary
              hover:bg-primary-dull transition-all text-white rounded-lg'> {user ? 'Logout' : 'Login'}
             </button>  
            
