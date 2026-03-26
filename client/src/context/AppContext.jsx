@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, useCallback } from "react";
 import axios from 'axios'
 import {toast} from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -24,7 +24,8 @@ export const AppProvider = ({ children }) => {
   
     //function to check if usr is logged in 
 
-    const fetchUser = async ()=>{
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const fetchUser = useCallback(async ()=>{
         try {
           const {data} = await axios.get('/api/user/data')
           if(data.success){
@@ -37,7 +38,7 @@ export const AppProvider = ({ children }) => {
         } catch (error) {
             toast.error(error.message) 
         }
-    }
+    })
     
     //function to fetch all cars from the server
      const fetchCars = async ()=>{
