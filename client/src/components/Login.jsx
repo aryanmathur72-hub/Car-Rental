@@ -31,7 +31,7 @@ const Login = () => {
                 toast.error(data.message);
             }
         } catch (error) {
-            toast.error(error.message);
+            toast.error(error?.response?.data?.message || error.message);
         }
      }
     
@@ -132,7 +132,7 @@ const Login = () => {
                                 <div className='w-full flex justify-center'>
                                     <GoogleLogin
                                         onSuccess={handleGoogleSuccess}
-                                        onError={() => toast.error('Google sign in failed')}
+                                        onError={() => toast.error('Google sign-in blocked. Add your exact frontend URL in Google Authorized JavaScript origins.')}
                                         useOneTap
                                     />
                                 </div>
